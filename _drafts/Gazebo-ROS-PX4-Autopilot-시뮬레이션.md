@@ -20,15 +20,11 @@ PC 세팅 환경은 다음과 같다.
 
 ROS 및 Gazebo 는 설치된 상태라고 가정한다. (```ros-noetic-desktop-full```)
 
-PX4 Autopilot 사용 시의 Offboard control 에 대한 전체적인 설명이 필요한 경우 다음 링크를 참고한다.
-
-* [PX4 User Guide: Offboard Control](https://docs.px4.io/main/en/ros/offboard_control.html)
+PX4 Autopilot 사용 시의 Offboard control 에 대한 전체적인 이해가 필요하므로 관련 가이드 문서[^offboard-control-guide]를 참고하는 것이 좋다.
 
 ## ROS-Gazebo 시뮬레이션
 PX4 User Guide 에서는 시뮬레이션 시 ROS 와 Gazebo 를 연동하여 진행하는 방식을 추천하고 있다.
-특히 Gazebo classic 을 사용한 시뮬레이션 방법은 다음 링크에 정리되어있다.
-
-* [ROS with Gazebo Classic Simulation](https://docs.px4.io/main/en/simulation/ros_interface.html)
+특히 Gazebo classic 을 사용한 시뮬레이션 방법은 따로 문서[^gazebo-classic-sim]가 정리되어있다.
 
 위 링크에서 전체적인 설정 순서가 설명되어 있지만, 기본적인 시뮬레이션을 위해 필요한 내용은 크게 다음 세 가지이다.
 
@@ -37,7 +33,7 @@ PX4 User Guide 에서는 시뮬레이션 시 ROS 와 Gazebo 를 연동하여 진
 * 예제 코드
 
 ### PX4-Autopilot 패키지
-* 참고 문서[^ubuntu-ros-gazebo]
+* 참고 문서: Ubuntu Development Environment 문서의 ROS/Gazebo Classic 섹션[^ubuntu-ros-gazebo]
 
 PX4 Autopilot 범용 패키지를 클론한다. 본 문서 작성일 기준으로 패키지의 최신 커밋 이름은 ```d532578``` 이다.
 
@@ -65,7 +61,7 @@ sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
 ```
 
 ### MAVROS 설치
-* 참고 문서[^mavros-guide]
+* 참고 문서: ROS with MAVROS Installation Guide[^mavros-guide]
 
 쉽고 빠른 설치를 위해 source installation 대신 binary installation 을 진행한다.
 위 문서에서 mavros 관련 패키지 설치 명령어가
@@ -214,6 +210,8 @@ add_dependencies(offb_node ${catkin_EXPORTED_TARGETS})
 
 </details>
 
+<br>
+
 > 위 예시에서는 추가 개발을 염두하고 헤더파일을 저장할 ```include``` 폴더를 만들고, ```CMakeLists.txt``` 에도 인클루드 설정을 해두었다.
 {: .prompt-info }
 
@@ -226,7 +224,7 @@ sudo apt install python3-catkin-tools
 {: .prompt-tip }
 
 ### 시뮬레이션
-* 참고 문서[^simulation]
+* 참고 문서: ROS with Gazebo Classic Simulation[^simulation]
 
 다음 순서에 따라 진행하면 예제 코드가 동작하는 것을 시뮬레이션에서 확인할 수 있다.
 
@@ -278,6 +276,8 @@ MAVROS 에서 사용 가능한 토픽, 서비스는 따로 위키문서[^mavros-
 시뮬레이션에 사용되는 무인기의 종류나 환경을 변경하려면 Gazebo Simulation 문서[^gazebo-sim-detailed]를 참고한다.
 
 ## 참고자료
+[^offboard-control-guide]: [PX4 User Guide: Offboard Control](https://docs.px4.io/main/en/ros/offboard_control.html)
+[^gazebo-classic-sim]: [ROS with Gazebo Classic Simulation](https://docs.px4.io/main/en/simulation/ros_interface.html)
 [^ubuntu-ros-gazebo]: [Ubuntu Development Environment 문서의 ROS/Gazebo Classic 섹션](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html#ros-gazebo-classic)
 [^mavros-guide]: [ROS with MAVROS Installation Guide](https://docs.px4.io/main/en/ros/mavros_installation.html)
 [^cpp-example]: [C++ 예제 문서](https://docs.px4.io/main/en/ros/mavros_offboard_cpp.html)
