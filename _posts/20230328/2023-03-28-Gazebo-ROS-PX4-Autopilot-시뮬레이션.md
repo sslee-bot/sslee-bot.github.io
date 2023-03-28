@@ -277,10 +277,10 @@ MAVROS 에서 사용 가능한 토픽, 서비스는 따로 위키문서[^mavros-
 
 ## 참고자료
 [^offboard-control-guide]: [PX4 User Guide: Offboard Control](https://docs.px4.io/main/en/ros/offboard_control.html)
-[^gazebo-classic-sim]: [ROS with Gazebo Classic Simulation](https://docs.px4.io/main/en/simulation/ros_interface.html)
-[^ubuntu-ros-gazebo]: [Ubuntu Development Environment 문서의 ROS/Gazebo Classic 섹션](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html#ros-gazebo-classic)
-[^mavros-guide]: [ROS with MAVROS Installation Guide](https://docs.px4.io/main/en/ros/mavros_installation.html)
-[^cpp-example]: [C++ 예제 문서](https://docs.px4.io/main/en/ros/mavros_offboard_cpp.html)
-[^simulation]: [ROS with Gazebo Classic Simulation](https://docs.px4.io/main/en/simulation/ros_interface.html)
-[^mavros-wiki]: [MAVROS 위키문서](http://wiki.ros.org/mavros)
-[^gazebo-sim-detailed]: [Gazebo Simulation 문서](https://dev.px4.io/v1.10_noredirect/en/simulation/gazebo.html)
+[^gazebo-classic-sim]: [PX4 User Guide: ROS with Gazebo Classic Simulation](https://docs.px4.io/main/en/simulation/ros_interface.html)
+[^ubuntu-ros-gazebo]: [PX4 User Guide: Ubuntu Development Environment](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html#ros-gazebo-classic)
+[^mavros-guide]: [PX4 User Guide: ROS with MAVROS Installation Guide](https://docs.px4.io/main/en/ros/mavros_installation.html)
+[^cpp-example]: [PX4 User Guide: MAVROS Offboard control example (C++)](https://docs.px4.io/main/en/ros/mavros_offboard_cpp.html)
+[^simulation]: [PX4 User Guide: ROS with Gazebo Classic Simulation](https://docs.px4.io/main/en/simulation/ros_interface.html)
+[^mavros-wiki]: [MAVROS 위키](http://wiki.ros.org/mavros)
+[^gazebo-sim-detailed]: [Dronecode: Gazebo Simulation](https://dev.px4.io/v1.10_noredirect/en/simulation/gazebo.html)
