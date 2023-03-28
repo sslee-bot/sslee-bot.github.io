@@ -47,8 +47,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 # 패키지를 클론한 경로에서,
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
 ```
-> 스크립트를 실행하였을 때 numpy 버전 미달 등의 오류가 발생한다면 다음과 같이 버전을 업그레드한다.
-
+> 스크립트를 실행하였을 때 numpy 버전 미달 등의 오류가 발생한다면 다음과 같이 버전을 업그레이드한다.
 ```bash
 sudo pip install numpy --upgrade
 ```
