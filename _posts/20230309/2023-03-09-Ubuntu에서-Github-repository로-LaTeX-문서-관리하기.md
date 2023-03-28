@@ -24,7 +24,8 @@ sudo apt install texlive-full
 
 ![ieee-paper repo](/assets/img/20230309/ieee-paper-repo.png){: .shadow }
 
-> 이 파일은 문서 작업 후 pdf 파일 변환 등으로 만들어지는 파일을 Git 버전 관리 시에 반영하지 않도록 한다.
+> 이 파일은 문서 작업 후 렌더링으로 만들어지는 파일을 Git 버전 관리 시에 반영하지 않도록 한다.
+만약 렌더링 결과물인 pdf 파일도 반영되지 않게 하려면, `.gitignore` 파일을 열고 주석처리된 `# *.pdf` 부분을 주석 해제한다.
 {: .prompt-info }
 
 만들어진 레포지토리를 로컬 환경에서 작업할 수 있도록 `git clone` 한다.
@@ -59,3 +60,6 @@ _'LaTeX Workshop' Extension 을 설치한 모습_
 다음과 같이 pdf 파일을 VS Code 에서 열어볼 수도 있다.
 
 ![overall-screen](/assets/img/20230309/overall-screen.png){: .shadow }
+
+> pdf 미리보기 화면에서, 편집하고 싶은 부분을 Ctrl 키 입력과 함께 좌클릭하면 해당 부분을 곧바로 편집할 수 있도록 tex 파일이 열린다.
+{: .prompt-tip }
