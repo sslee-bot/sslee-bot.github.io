@@ -72,7 +72,7 @@ sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
 로 안내되어 있는데, ROS Kinetic 버전에만 호환될 뿐더러 모든 MAVROS 관련 패키지를 설치하지 않으므로 다음 명령어를 대신 사용하는 것을 추천한다.
 
 ```bash
-sudo apt install ros-${ROS_DISTRO}-mavros\*
+sudo apt install ros-${ROS_DISTRO}-mavros'*'
 ```
 
 > 환경변수 ```ROS_DISTRO```는 ```/opt/ros/[ROS dist 이름]/setup.bash (또는 .zsh)``` 파일을 source 했다면 정상적으로 등록되었을 것이다. 예를 들어, 사용 중인 ROS 의 distribution 이 Noetic 이라면 이 환경변수의 값은 ```noetic``` 이 된다.
@@ -242,6 +242,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```bash
 # 클론한 PX4-Autopilot 패키지 경로에서,
 DONT_RUN=1 make px4_sitl_default gazebo-classic
+# 이후에 시뮬레이션을 다시 진행하려는 경우 여기서부터 시작
 source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
@@ -262,6 +263,12 @@ rosrun px4_offboard offb_node
 ```
 
 실행하면 예제 문서에 있는 것처럼 arming, takeoff 진행 후 2m 높이까지 떠오르는 것을 확인할 수 있다.
+
+> 컴파일(make) 이후에 PX4-Autopilot 패키지를 다른 경로로 이동시키는 경우 시뮬레이션 실행에 실패할 수 있다. 이런 경우 다음과 같이 조치한다.
+* ```~/.ros``` 폴더를 삭제한다. (내부에 필요한 파일이 있는 경우 따로 저장)
+* 패키지 경로에서 ```make clean``` 명령어 실행
+* Gazebo 시뮬레이션 실행 과정 다시 진행
+{: .prompt-warning}
 
 ## 기타
 C++ 예제 문서[^cpp-example]에 다음과 같은 설명이 있다.
