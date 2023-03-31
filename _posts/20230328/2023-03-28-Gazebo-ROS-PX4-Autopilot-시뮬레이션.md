@@ -2,7 +2,7 @@
 title: Gazebo ROS PX4 Autopilot 시뮬레이션
 # date: 2022-11-05 13:30:00 +/-TTTT
 categories: [PX4 Autopilot]
-tags: [ROS, ROS1, Gazebo, PX4]
+tags: [ROS, ROS1, Gazebo, PX4, PX4 Autopilot, MAVROS, C++, Simulation]
 ---
 
 Gazebo에서 PX4 Autopilot 을 시뮬레이션하는 방법을 소개한다.
@@ -18,7 +18,7 @@ PC 세팅 환경은 다음과 같다.
 * ROS: ROS1 Noetic
 * Gazebo version: 11.11
 
-ROS 및 Gazebo 는 설치된 상태라고 가정한다. (```ros-noetic-desktop-full```)
+ROS 및 Gazebo 는 설치된 상태라고 가정한다. (`ros-noetic-desktop-full`)
 
 PX4 Autopilot 사용 시의 Offboard control 에 대한 전체적인 이해가 필요하므로 관련 가이드 문서[^offboard-control-guide]를 참고하는 것이 좋다.
 
@@ -35,7 +35,7 @@ PX4 User Guide 에서는 시뮬레이션 시 ROS 와 Gazebo 를 연동하여 진
 ### PX4-Autopilot 패키지
 * 참고 문서: Ubuntu Development Environment 문서의 ROS/Gazebo Classic 섹션[^ubuntu-ros-gazebo]
 
-PX4 Autopilot 범용 패키지를 클론한다. 본 문서 작성일 기준으로 패키지의 최신 커밋 이름은 ```d532578``` 이다.
+PX4 Autopilot 범용 패키지를 클론한다. 본 문서 작성일 기준으로 패키지의 최신 커밋 이름은 `d532578` 이다.
 
 ```bash
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -75,10 +75,10 @@ sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
 sudo apt install ros-${ROS_DISTRO}-mavros'*'
 ```
 
-> 환경변수 ```ROS_DISTRO```는 ```/opt/ros/[ROS dist 이름]/setup.bash (또는 .zsh)``` 파일을 source 했다면 정상적으로 등록되었을 것이다. 예를 들어, 사용 중인 ROS 의 distribution 이 Noetic 이라면 이 환경변수의 값은 ```noetic``` 이 된다.
+> 환경변수 `ROS_DISTRO`는 `/opt/ros/[ROS dist 이름]/setup.bash (또는 .zsh)` 파일을 source 했다면 정상적으로 등록되었을 것이다. 예를 들어, 사용 중인 ROS 의 distribution 이 Noetic 이라면 이 환경변수의 값은 `noetic` 이 된다.
 {: .prompt-info }
 
-이후에는 문서와 동일하게 ```install_geographiclib_datasets.sh``` 을 다운로드하고 실행한다.
+이후에는 문서와 동일하게 `install_geographiclib_datasets.sh` 을 다운로드하고 실행한다.
 
 ```bash
 wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
@@ -88,9 +88,9 @@ sudo bash ./install_geographiclib_datasets.sh
 ### 예제 코드
 여기서는 PX4 User Guide 에서 제공하는 C++ 예제 문서[^cpp-example]를 바탕으로 시뮬레이션을 직접 진행하는 내용을 다룬다.
 
-시뮬레이션에 사용되는 ROS 노드를 구현한 C++ 코드(```offb_node.cpp```)는 예제 문서에 나타나 있는데, ```CMakeLists.txt``` 파일은 사용자가 알아서 작성하도록 안내되어 있다.
+시뮬레이션에 사용되는 ROS 노드를 구현한 C++ 코드(`offb_node.cpp`)는 예제 문서에 나타나 있는데, `CMakeLists.txt` 파일은 사용자가 알아서 작성하도록 안내되어 있다.
 
-코드 실행을 위해 워크스페이스 폴더(```px4_ws```)를 생성하고, 다음과 같이 디렉토리를 구성하였다.
+코드 실행을 위해 워크스페이스 폴더(`px4_ws`)를 생성하고, 다음과 같이 디렉토리를 구성하였다.
 
 ```
 px4_ws
@@ -104,7 +104,7 @@ px4_ws
             └── offb_node.cpp
 ```
 
-여기서 ```CMakeLists.txt``` 와 ```package.xml``` 은 다음과 같이 작성하였다.
+여기서 `CMakeLists.txt` 와 `package.xml` 은 다음과 같이 작성하였다.
 
 <details>
 <summary>CMakeLists.txt 작성 예시 펼치기/접기</summary>
@@ -211,12 +211,12 @@ add_dependencies(offb_node ${catkin_EXPORTED_TARGETS})
 
 <br>
 
-> 위 예시에서는 추가 개발을 염두하고 헤더파일을 저장할 ```include``` 폴더를 만들고, ```CMakeLists.txt``` 에도 인클루드 설정을 해두었다.
+> 위 예시에서는 추가 개발을 염두하고 헤더파일을 저장할 `include` 폴더를 만들고, `CMakeLists.txt` 에도 인클루드 설정을 해두었다.
 {: .prompt-info }
 
-위와 같이 모든 파일을 준비하고 ```px4_ws``` 경로에서 ```catkin_make``` 또는 ```catkin build``` 명령어로 빌드를 진행한다.
+위와 같이 모든 파일을 준비하고 `px4_ws` 경로에서 `catkin_make` 또는 `catkin build` 명령어로 빌드를 진행한다.
 
-> ```catkin build``` 명령어가 사용 불가능하다면 다음과 같이 패키지를 설치한다.
+> `catkin build` 명령어가 사용 불가능하다면 다음과 같이 패키지를 설치한다.
 ```bash
 sudo apt install python3-catkin-tools
 ```
@@ -249,7 +249,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic
 roslaunch px4 posix_sitl.launch
 ```
 
-> 위에서 make 명령어 실행 시 gstreamer 관련 의존성 문제로 ```FAILED``` 오류가 뜨며 실패하는 경우 다음과 같이 설치한다.
+> 위에서 make 명령어 실행 시 gstreamer 관련 의존성 문제로 `FAILED` 오류가 뜨며 실패하는 경우 다음과 같이 설치한다.
 ```bash
 sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 ```
@@ -265,8 +265,8 @@ rosrun px4_offboard offb_node
 실행하면 예제 문서에 있는 것처럼 arming, takeoff 진행 후 2m 높이까지 떠오르는 것을 확인할 수 있다.
 
 > 컴파일(make) 이후에 PX4-Autopilot 패키지를 다른 경로로 이동시키는 경우 시뮬레이션 실행에 실패할 수 있다. 이런 경우 다음과 같이 조치한다.
-* ```~/.ros``` 폴더를 삭제한다. (내부에 필요한 파일이 있는 경우 따로 저장)
-* 패키지 경로에서 ```make clean``` 명령어 실행
+* `~/.ros` 폴더를 삭제한다. (내부에 필요한 파일이 있는 경우 따로 저장)
+* 패키지 경로에서 `make clean` 명령어 실행
 * Gazebo 시뮬레이션 실행 과정 다시 진행
 {: .prompt-warning}
 

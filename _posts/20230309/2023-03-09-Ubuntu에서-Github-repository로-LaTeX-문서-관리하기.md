@@ -2,7 +2,7 @@
 title: Ubuntu에서 Github repository로 LaTeX 문서 관리하기
 # date: 2022-11-05 13:30:00 +/-TTTT
 categories: [etc.]
-tags: [Github, LaTeX, 논문]
+tags: [Ubuntu, Github, LaTeX]
 ---
 
 우분투 환경에서 LaTeX 문서를 작성하고 관리하기 편리한 방법을 소개한다.
@@ -31,7 +31,7 @@ sudo apt install texlive-full
 만들어진 레포지토리를 로컬 환경에서 작업할 수 있도록 `git clone` 한다.
 
 ```bash
-git clone [레포지토리 주소]
+git clone {레포지토리 주소}
 ```
 
 ## LaTeX 템플릿 다운로드

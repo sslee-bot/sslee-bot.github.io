@@ -2,7 +2,7 @@
 title: Google test 실습 예시
 # date: 2022-11-05 13:30:00 +/-TTTT
 categories: [C++]
-tags: [google test, gtest]
+tags: [Google test, gtest, Ubuntu, C++]
 ---
 
 Google test를 간단히 실습해본다.
