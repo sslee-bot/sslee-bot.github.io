@@ -7,6 +7,10 @@ tags: [google test, gtest]
 
 Google test를 간단히 실습해본다.
 
+* Ubuntu 환경에서 테스트하였다.
+* cmake와 같은 기본적인 빌드 툴은 설치되어 있다고 가정한다.
+* gtest가 이미 설치되어 있다면 좋지만, 그렇지 않은 경우를 가정하고 다운로드 후 실행하는 내용을 다루었다.
+
 ## 디렉토리 구성
 ```
 gtest_practice/
